@@ -3,10 +3,12 @@ import cors from "cors";
 import "dotenv/config";
 import mongoose from "mongoose";
 
+/* */
+
 mongoose
-    .connect(process.env.MONGODB_CONNECTION_STRING as string)
-    .then(() => console.log("Connected to DB!"));
-    
+    .connect(process.env.MONGODB_CONNECTION_STRING as string)           /* Connecting the app to the designied db*/
+    .then(() => console.log("Connected to DB!"));                       /* displays that the connection was succ with a lil text */
+
 const app = express();                                                  /* create a new express server and assign it to express var */
 app.use(express.json());                                                /* auto convert the body to any request we make to our api server to json */
 app.use(cors());
