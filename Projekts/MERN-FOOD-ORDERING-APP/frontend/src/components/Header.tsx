@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom"
 import MobileNav from "./MobileNav";
+import MainNav from "./MainNav";
 
 const Header = () => {
     return(
@@ -10,8 +11,11 @@ const Header = () => {
                     className="text-3xl font bold tracking-tight text-orange-500">
                     MernEats.com
                 </Link>
-                <div className="md:hidden">                                         
+                <div className="md:hidden">                      // for medium size screen and up it stays hidden                   
                     <MobileNav/>
+                </div>
+                <div className="hidden md:block">               // block the hidden propriety for md size screen and upword
+                    <MainNav/>
                 </div>
             </div>
         </div>
