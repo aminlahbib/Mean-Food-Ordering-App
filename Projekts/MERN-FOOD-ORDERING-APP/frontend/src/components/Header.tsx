@@ -11,10 +11,17 @@ const Header = () => {
                     className="text-3xl font bold tracking-tight text-orange-500">
                     MernEats.com
                 </Link>
+<<<<<<< HEAD
                 <div className="md:hidden">                     { /* for medium size screen and up it stays hidden   */  }              
                     <MobileNav/>
                 </div>
                 <div className="hidden md:block">               { /*initialy stays hidden and bloc for md size screen and upword*/  } 
+=======
+                <div className="md:hidden">                      {/* for medium size screen and up it stays hidden */}                  
+                    <MobileNav/>
+                </div>
+                <div className="hidden md:block">                {/* block the hidden propriety for md size screen and upword */}   
+>>>>>>> slave1
                     <MainNav/>
                 </div>
             </div>
