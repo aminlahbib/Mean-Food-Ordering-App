@@ -2,7 +2,7 @@ import  express, {Request, Response} from "express";
 import cors from "cors";
 import "dotenv/config";
 import mongoose from "mongoose";
-
+import myUserRoute from "./routes/MyUserRoute"; 
 /* */
 
 mongoose
@@ -13,10 +13,7 @@ const app = express();                                                  /* creat
 app.use(express.json());                                                /* auto convert the body to any request we make to our api server to json */
 app.use(cors());
 
-app.get("/test", async (req: Request, res: Response)=>{                 /* when the backend gets a request it gives a response saying hello */                    
-    res.json({ message: "Hello!"});
-});
-
+app.use("/api/my/user", myUserRoute)                                    /* this line is gonna tell express that any request that starts with /api/my/user is gonna foward the request to myUserRoute file*/
 app.listen(5500, ()=> {
     console.log("server started on localhost:5500");
-})
+});
