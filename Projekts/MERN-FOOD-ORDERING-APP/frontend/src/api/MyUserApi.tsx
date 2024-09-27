@@ -1,5 +1,4 @@
-
-import { useMutation, useQuery } from "react-query";
+import { useMutation } from "react-query";
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
  
@@ -9,33 +8,35 @@ type CreateUserRequest = {
 };
 
 export const useCreateMyUser = () => {
-    const createMyUserRequest = async (user: CreateUserRequest) => {
-        const response = await fetch(`${API_BASE_URL}/api/my/user`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(user),
-        });
+  //const { getAccessTokenSilently } = useAuth0();
 
-        if (!response.ok) {
-            throw new Error("Failed to create user");
-        }
-    };
+  const createMyUserRequest = async (user: CreateUserRequest) => {
+   // const accessToken = await getAccessTokenSilently();
+    const response = await fetch(`${API_BASE_URL}/api/my/user`, {
+      method: "POST",
+      headers: {
+     //   Authorization: `Bearer ${accessToken}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(user),
+    });
 
-    const { 
-        mutateAsync: createUser, 
-        isLoading, 
-        isError, 
-        isSuccess
-    } = useMutation(createMyUserRequest);
-
-    return {
-        createUser,
-        isLoading,
-        isError,
-        isSuccess,
+    if (!response.ok) {
+      throw new Error("Failed to create user");
     }
-        
-
-};
+  };
+  
+    const {
+      mutateAsync: createUser,
+      isLoading,
+      isError,
+      isSuccess,
+    } = useMutation(createMyUserRequest);
+  
+    return {
+      createUser,
+      isLoading,
+      isError,
+      isSuccess,
+    };
+  };
